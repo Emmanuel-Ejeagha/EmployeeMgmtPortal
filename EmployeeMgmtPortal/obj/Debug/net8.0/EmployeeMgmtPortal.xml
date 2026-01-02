@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EmployeeMgmtPortal</name>
+    </assembly>
+    <members>
+        <member name="T:EmployeeMgmtPortal.Controllers.EmployeesController">
+            <summary>
+            API endpoints for managing employee records
+            </summary>
+        </member>
+        <member name="M:EmployeeMgmtPortal.Controllers.EmployeesController.GetAllEmployees">
+            <summary>Retrieves all employees</summary>
+            <returns>List of all employees in the system</returns>
+            <response code="200">Returns the list of employees</response>
+            <response code="500"> if there was an internal server error</response>
+        </member>
+        <member name="M:EmployeeMgmtPortal.Controllers.EmployeesController.GetEmployeeById(System.Guid)">
+            <summary>
+              Retrieves a specific employee by their unique identifier
+            </summary>
+            <param name="id">Employee ID (GUID format)</param>
+            <returns>The requested employee details</returns>
+            <response code="200">Returns the employee record</response>
+            <response code="404">If the employee with the specific ID dosen't exist</response>
+            <response code="404">If the provided ID format is invalid</response>
+        </member>
+        <member name="M:EmployeeMgmtPortal.Controllers.EmployeesController.AddEmployee(EmployeeMgmtPortal.DTOs.AddEmployeeDto)">
+            <summary>
+            Creates a new employee record
+            </summary>
+            <param name="addEmployeeDto">Employee data transfer object</param>
+            <returns>The newly created employee record</returns>
+            <response code="200">Employee created successfully</response>
+            <response code="400">If the input data is invalid</response>
+            <response code="409">If an employee with the same email already exists</response>
+        </member>
+        <member name="M:EmployeeMgmtPortal.Controllers.EmployeesController.UpdateEmployee(System.Guid,EmployeeMgmtPortal.DTOs.UpdateEmployeeDto)">
+            <summary>
+            Updates an existing employee record
+            </summary>
+            <param name="id">Employee ID to update</param>
+            <param name="updateEmployeeDto">Updated employee data</param>
+            <returns>The updated employee record</returns>
+            <response code="200">Employee updated successfully</response>
+            <response code="400">If the input data is invalid</response>
+            <response code="404">If the employee doesn't exist</response>
+            <response code="409">If trying to change to an email that already exists</response>
+        </member>
+        <member name="M:EmployeeMgmtPortal.Controllers.EmployeesController.DeleteEmployee(System.Guid)">
+            <summary>
+            Deletes an employee record
+            </summary>
+            <param name="id">Employee ID to delete</param>
+            <returns>No content on successful deletion</returns>
+            <response code="204">Employee deleted successfully</response>
+            <response code="404">If the employee doesn't exist</response>
+        </member>
+        <member name="T:EmployeeMgmtPortal.Migrations.InitialCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:EmployeeMgmtPortal.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EmployeeMgmtPortal.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EmployeeMgmtPortal.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
